@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:loadBundle basename=".com.i18N.Bundle" var="msg"/>
+    
+    <h:head>
+        <title>#{msg.objectives}</title>
+    </h:head>
+    <h:body>
+        <p:panel>
+            <f:facet name="header">
+                #{msg.objectives}                
+            </f:facet>
+            <p:dataTable value="#{objetivoBacking.allObjetivos}" 
+                         var="objetivo" 
+                         emptyMessage="#{msg.noobjectives}" >
+                <p:column headerText="#{msg.listobjectives}">
+                    <h:outputText value="#{objetivo.nombre}" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+        <br/><br/>
+        <h:form id="volver"> 
+            <h:commandLink value="#{msg.mainmenu}" action="/welcome"/>
+        </h:form>
+    </h:body>
+</html>
